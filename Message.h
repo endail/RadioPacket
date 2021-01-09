@@ -66,6 +66,7 @@ public:
 	static constexpr uint16_t getMaxBodyLength();
 
 	Message() noexcept;
+	Message(const uint8_t* const data, const uint16_t len) noexcept;
 	Message(const Message& m) noexcept;
 	virtual ~Message() = default;
 

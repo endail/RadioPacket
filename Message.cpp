@@ -55,6 +55,11 @@ Message::Message() noexcept {
 	this->_init();
 }
 
+Message::Message(const uint8_t* const data, const uint16_t len) noexcept
+	: Message() {
+		this->setBodyData(data, len);
+}
+
 Message::Message(const Message& m) noexcept {
 	this->_data = m._data;
 }
