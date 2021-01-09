@@ -27,7 +27,7 @@
 #include "Util.h"
 
 namespace RadioPacket {
-	
+
 void RadioPacket::_init() noexcept {
 	this->_data.clear();
 	this->_data.resize(RadioPacket::getHeaderLength(), false);
