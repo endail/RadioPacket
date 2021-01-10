@@ -55,6 +55,10 @@ RadioPacket::RadioPacket(const uint8_t* const body, const uint8_t len) noexcept
 		this->setBodyData(body, len);
 }
 
+RadioPacket::RadioPacket(const Message* msg) noexcept {
+	: RadioPacket(msg->getData(), msg->getMessageLength())
+}
+
 RadioPacket::RadioPacket(const RadioPacket& p) noexcept {
 	this->_data = p._data;
 }

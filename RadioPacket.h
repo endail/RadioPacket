@@ -86,6 +86,7 @@ public:
 
 	RadioPacket() noexcept;
 	RadioPacket(const uint8_t* const body, const uint8_t len) noexcept;
+	RadioPacket(const Message* msg) noexcept;
 	RadioPacket(const RadioPacket& p) noexcept;
 	virtual ~RadioPacket() = default;
 
