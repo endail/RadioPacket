@@ -18,7 +18,7 @@ uint16_t UPDATE_DB_CMD = 12;
 Message m(arr, 3);
 m.setRawAction(UPDATE_DB_CMD);
 
-RadioPacket p(m.getData(), m.getMessageLength());
+RadioPacket p(&m);
 p.setRawTransmitterId(TRANSMITTER_ID);
 p.setRawReceiverId(RECEIVER_ID);
 p.setRawCrc8(p.generateChecksum());
