@@ -1,0 +1,5 @@
+{
+	"arduino.defaultBaudRate": 115200,
+	"C_Cpp.default.intelliSenseMode": "gcc-x86",
+	"C_Cpp.intelliSenseEngineFallback": "Enabled"
+}
