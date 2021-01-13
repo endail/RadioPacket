@@ -1,10 +1,10 @@
 # RadioPacket
 
-A packet format for sending/receiving data using the ![Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester)
+A packet format for sending/receiving data using the [Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester)
 
 ![lint status](https://github.com/endail/RadioPacket/workflows/arduino-lint/badge.svg?event=push)
 
-## ![Transmitter Code](https://github.com/endail/RadioPacket/blob/main/examples/tx/tx.ino)
+## [Transmitter Code](https://github.com/endail/RadioPacket/blob/main/examples/tx/tx.ino)
 
 ```cpp
 using RadioPacket;
@@ -22,7 +22,7 @@ man.transmitArray(
     const_cast<uint8_t*>(p.getData()));
 ```
 
-## ![Receiver Code](https://github.com/endail/RadioPacket/blob/main/examples/rx/rx.ino)
+## [Receiver Code](https://github.com/endail/RadioPacket/blob/main/examples/rx/rx.ino)
 
 ```cpp
 RadioPacket* p;
