@@ -2,7 +2,7 @@
 
 A packet format for sending/receiving data using the [Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester)
 
-![lint status](https://github.com/endail/RadioPacket/workflows/arduino-lint/badge.svg?event=push)
+[![lint status](https://github.com/endail/RadioPacket/workflows/arduino-lint/badge.svg?event=push)](https://github.com/endail/RadioPacket/actions?query=workflow%3Aarduino-lint)
 
 ## [Transmitter Code](https://github.com/endail/RadioPacket/blob/main/examples/tx/tx.ino)
 
