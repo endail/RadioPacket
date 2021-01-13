@@ -1,6 +1,6 @@
 # RadioPacket
 
-A packet format for sending/receiving data using the Arduino Manchester library
+A packet format for sending/receiving data using the ![Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester)
 
 ![lint status](https://github.com/endail/RadioPacket/workflows/arduino-lint/badge.svg?event=push)
 
