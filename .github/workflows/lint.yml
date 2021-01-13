@@ -1,0 +1,17 @@
+name: gh-lib-lint
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: arduino/arduino-lint-action@v1
+    path: ./
+    version: 1.x
+    compliance: strict
+    library-manager: false
+    project-type: library
+    recursive: false
+    # report-file: 
+    verbose: true
+    token: GITHUB_TOKEN
