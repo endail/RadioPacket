@@ -41,18 +41,28 @@ delete m;
 ## Packet Format
 
 0             1        2               4            6
+
 [PACKET LENGTH][VERSION][TRANSMITTER ID][RECEIVER ID]
+
+
 6        7            8     9
+
 [FRAGMENT][BODY LENGTH][CRC8]
+
+
 9
+
 [BODY DATA]
 
 ## Message Format
 
 0           2       4
+
 [BODY LENGTH][ACTION]
 
+
 4
+
 [BODY DATA]
 
 ## Extending Messages
