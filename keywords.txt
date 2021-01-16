@@ -2,7 +2,12 @@
 
 
 # Datatypes (KEYWORD1)
+ExpandingArray KEYWORD1
+Message KEYWORD1
+NetworkBuffer KEYWORD1
 RadioPacket	KEYWORD1
+Util KEYWORD1
+
 
 # Methods and Functions (KEYWORD2)
 
