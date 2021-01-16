@@ -97,10 +97,14 @@ public:
 
 // example use
 // read analog value of A1 into message object
-
 MeasurementMessage mm;
 mm.setMeasurement(::analogRead(A1));
 
 // then encapsulate the message into a RadioPacket as
 // in the example transmitter code above
+
+// when receiving, cast Message to a MeasurementMessage
+// where m is a Message* as in the example receiver code above
+MeasurementMessage* mm = static_cast<MeasurementMessage*>(m);
+mm->getMeasurement();
 ```
