@@ -23,16 +23,11 @@
 
 #include "Util.h"
 
-#include <string.h>
 #include <util/crc16.h>
 
 namespace RadioPacket {
 
 Util::Util() {
-}
-
-void Util::zero(void* const data, const size_t len) {
-	::memset(data, 0, len);
 }
 
 uint8_t Util::crc8(uint8_t crc, const uint8_t* const data, const size_t len) {

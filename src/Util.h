@@ -26,6 +26,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <string.h>
 
 namespace RadioPacket {
 class Util {
@@ -128,7 +129,9 @@ public:
 	 * @param  {void*} const : 
 	 * @param  {size_t} len  : 
 	 */
-	static void zero(void* const data, const size_t len);
+	static inline void zero(void* const data, const size_t len) {
+		::memset(data, 0, len);
+	}
 
 	/**
 	 * Calculate the CRC8 value of data
