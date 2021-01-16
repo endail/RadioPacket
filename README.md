@@ -44,11 +44,9 @@ delete m;
 
 [PACKET LENGTH][VERSION][TRANSMITTER ID][RECEIVER ID]
 
-
 6        7            8     9
 
 [FRAGMENT][BODY LENGTH][CRC8]
-
 
 9
 
@@ -59,7 +57,6 @@ delete m;
 0           2       4
 
 [BODY LENGTH][ACTION]
-
 
 4
 
