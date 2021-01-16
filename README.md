@@ -1,6 +1,6 @@
 # RadioPacket
 
-A packet format for sending/receiving data using the [Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester)
+A packet format for sending/receiving data using the [Arduino Manchester library](https://github.com/mchr3k/arduino-libs-manchester).
 
 [![lint status](https://github.com/endail/RadioPacket/workflows/arduino-lint/badge.svg?event=push)](https://github.com/endail/RadioPacket/actions?query=workflow%3Aarduino-lint)
 
@@ -68,10 +68,14 @@ delete m;
 ## Extending Messages
 
 ```cpp
+// MeasurementMessage.h
+
+#include <RadioPacket.h>
+
 /**
  * MeasurementMessage holds a single 16 bit integer
  */
-class MeasurementMessage : public Message {
+class MeasurementMessage : public RadioPacket::Message {
 
 protected:
     static const uint8_t _MEASUREMENT_OFFSET = 0;
@@ -94,8 +98,10 @@ public:
     }
 
 };
+```
 
-// example use
+```cpp
+// example use of MeasurementMessage
 // read analog value of A1 into message object
 MeasurementMessage mm;
 mm.setMeasurement(::analogRead(A1));
@@ -103,7 +109,7 @@ mm.setMeasurement(::analogRead(A1));
 // then encapsulate the message into a RadioPacket as
 // in the example transmitter code above
 
-// when receiving, cast Message to a MeasurementMessage
+// when receiving, cast Message to a MeasurementMessage,
 // where m is a Message* as in the example receiver code above
 MeasurementMessage* mm = static_cast<MeasurementMessage*>(m);
 mm->getMeasurement();
