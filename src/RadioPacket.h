@@ -29,11 +29,12 @@
 #include "Message.h"
 
 /** 
- * A RadioPacket is limited in length to UINT8_MAX, which is the maximum
+ * A RadioPacket is limited in length to 0xff, which is the maximum
  * permitted by the Manchester library.
+ * See: https://github.com/mchr3k/arduino-libs-manchester/blob/master/Manchester.cpp#L41
  * 
  * Therefore, the maximum body length of a RadioPacket will always
- * be <= UINT8_MAX - header length.
+ * be <= 0xff - header length.
  * 
  * Formatted as such:
  * 
@@ -124,21 +125,47 @@ public:
 	 */
 	const uint8_t* getBodyData() const noexcept;
 
-	void copyHeader(void* const data) const noexcept;
-	void copyBody(void* const data) const noexcept;
-
-	void setBodyData(const uint8_t* const data, const uint8_t len) noexcept;
-	void resizeBody(const uint8_t bodyLen, const bool copy = true) noexcept;
 	
 	/**
-	 * Parse this packet's body into a Message
+	 * Copy data in this packet's header to data
+	 * Calling code must ensure data has sufficient space
+	 * @param  {void*} const : 
+	 */
+	void copyHeader(void* const data) const noexcept;
+	
+	/**
+	 * Copy data in this packet's body to data
+	 * Calling code must ensure data has sufficient space
+	 * @param  {void*} const : 
+	 */
+	void copyBody(void* const data) const noexcept;
+
+
+	/**
+	 * Copy data into this packet's body
+	 * @param  {uint8_t*} const : 
+	 * @param  {uint8_t} len    : 
+	 */
+	void setBodyData(const uint8_t* const data, const uint8_t len) noexcept;
+	
+	/**
+	 * Resize this packet's body size to bodyLen, optionally copying
+	 * existing body data after resizing
+	 * @param  {uint8_t} bodyLen : 
+	 * @param  {bool} copy       : 
+	 */
+	void resizeBody(const uint8_t bodyLen, const bool copy = true) noexcept;
+	
+
+	/**
+	 * Parse this packet's body into a Message object
 	 * @return {Message*}  : 
 	 */
 	Message* getMessage() const noexcept;
 
 	/**
 	 * Generate a CRC8 checksum across the packet.
-	 * This EXCLUDES the CRC value in the header
+	 * This calculation EXCLUDES the CRC value in the header
 	 * @return {uint8_t}  : 
 	 */
 	uint8_t generateChecksum() const noexcept;
